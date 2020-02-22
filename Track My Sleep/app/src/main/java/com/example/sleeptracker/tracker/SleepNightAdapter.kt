@@ -9,7 +9,7 @@ import com.example.sleeptracker.database.SleepNight
 import com.example.sleeptracker.databinding.ListItemSleepNightBinding
 
 // class SleepNightAdapter : RecyclerView.Adapter<SleepNightAdapter.ViewHolder>() {
-class SleepNightAdapter(val clickListener:SleepNightListener) :
+class SleepNightAdapter(private val clickListener: SleepNightListener) :
     ListAdapter<SleepNight, SleepNightAdapter.ViewHolder>(SleepNightDiffCallback()) {
 
     var data = listOf<SleepNight>()
@@ -87,7 +87,7 @@ class SleepNightAdapter(val clickListener:SleepNightListener) :
         }
     }
 
-    class SleepNightListener(val clickListener:  (sleepId: Long) -> Unit) {
+    class SleepNightListener(val clickListener: (sleepId: Long) -> Unit) {
         fun onClick(night: SleepNight) = clickListener(night.nightId)
     }
 
